@@ -16,15 +16,23 @@
     def sketch(p):
         # Define the setup function
         def setup():
-            p.createCanvas(400, 400)
+            p.createCanvas(400, 400, p5.WEBGL)
             p.background(220)
 
         # Define the draw loop
+        #from browser import document
         def draw():
-            p.background(220)
-            p.fill(255, 0, 0)
-            # Access p5 properties like mouseX and mouseY via the p object
-            p.rect(p.mouseX, p.mouseY, 50, 50)
+            p5.background(135, 206, 235) # Sky color
+            p5.orbitControl() # Enable mouse controls
+            # Simple block
+            p5.fill(0, 255, 0) # Green
+            p5.box(50) # Create a cube
+    
+# Hook p5 functions to Python
+p5.setup = setup
+p5.draw = draw
+
+        
 
         # Map Python functions to the p5 instance
         p.setup = setup
